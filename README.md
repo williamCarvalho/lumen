@@ -20,4 +20,4 @@ Abra a pasta root do projeto no terminal, em seguida execute os comandos na orde
 - Create: POST http://localhost:8080/drones/1
 - Paginate: GET http://localhost:8080/drones?_page=1&_limit=1
 - Sort: GET http://localhost:8080/drones?_sort=id&_order=asc
-- Filter: GET http://localhost:8080/drones?name=Ros%C3%A2ngela%20Helena%20Patr%C3%ADcia%20Arag%C3%A3o&status=success
+- Filter: GET http://localhost:8080/drones?status=success
