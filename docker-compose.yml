@@ -1,0 +1,57 @@
+version: "3.1"
+services:
+
+    api_php:
+        build: .
+        container_name: api_php
+        restart: unless-stopped
+        tty: true
+        working_dir: /var/www/html
+        volumes:
+            - "./:/var/www/html"
+            - "./php/local.ini:/usr/local/etc/php/conf.d/local.ini"
+            - "./apache2/htdocs/:/usr/local/apache2/htdocs/"
+        ports:
+            - "8080:80"
+        links:
+            - 'api_mariadb:db'
+        networks:
+            - api
+
+    api_mariadb:
+        image: mariadb:10.4
+        container_name: api_mariadb
+        restart: unless-stopped
+        tty: true
+        volumes:
+            - database:/var/lib/mysql/
+            - ./mysql/my.cnf:/etc/mysql/my.cnf
+        environment:
+            - MYSQL_ROOT_PASSWORD=5fb3CmyN
+            - MYSQL_DATABASE=apidrone
+            - MYSQL_USER=homestead
+            - MYSQL_PASSWORD=5cli9Rnb
+        ports:
+            - "3306:3306"
+        networks:
+            - api
+
+    api_phpmyadmin:
+        image: phpmyadmin/phpmyadmin
+        container_name: api_phpmyadmin
+        restart: unless-stopped
+        tty: true
+        links:
+            - 'api_mariadb:db'
+        ports:
+            - 8081:80
+        networks:
+            - api
+
+networks:
+    api:
+        driver: bridge
+
+volumes:
+    database:
+        driver: local
