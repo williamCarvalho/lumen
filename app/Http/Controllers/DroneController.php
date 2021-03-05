@@ -105,17 +105,23 @@ class DroneController extends Controller
 
         $drone = Drone::find($id);
 
-        $drone->update($request->all());
+        if ($drone) {
+            $drone->update($request->all());
 
-        return response()->json("Updated successfully.");
+            return response()->json("Updated successfully.");
+        } else
+            return response()->json("Register not found.");
     }
 
     public function delete($id) {
 
         $drone = Drone::find($id);
-        $drone->delete();
 
-        return response()->json("Removed successfully.");
+        if ($drone) {
+            $drone->delete();
+            return response()->json("Removed successfully.");
+        } else
+            return response()->json("Register not found.");
     }
 
     public function create(Request $request, $id) {

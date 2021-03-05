@@ -4,6 +4,7 @@
 
 Abra a pasta root do projeto no terminal, em seguida execute os comandos na ordem:
 - composer install
+- cp .env.example .env
 - docker-compose build
 - docker-compose up -d
 - docker exec -it api_php /bin/bash
@@ -19,4 +20,4 @@ Abra a pasta root do projeto no terminal, em seguida execute os comandos na orde
 - Create: POST http://localhost:8080/drones/1
 - Paginate: GET http://localhost:8080/drones?_page=1&_limit=1
 - Sort: GET http://localhost:8080/drones?_sort=id&_order=asc
-- Filter: GET http://localhost:8080/drones?name=william&status=success
+- Filter: GET http://localhost:8080/drones?name=Rosângela Helena Patrícia Aragão&status=success
