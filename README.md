@@ -1,7 +1,11 @@
 # Api Drone
 
-## Configuração
+## Requisitos
+- php 7.3
+- MariaDB 10.4
+- phpMyAdmin
 
+## Configuração
 Abra a pasta root do projeto no terminal, em seguida execute os comandos na ordem:
 - composer install
 - cp .env.example .env
@@ -12,7 +16,6 @@ Abra a pasta root do projeto no terminal, em seguida execute os comandos na orde
 - php artisan db:seed
 
 ## Endpoints
-
 - List: GET http://localhost:8080/drones
 - Insert: POST http://localhost:8080/drones
 - Update: PUT http://localhost:8080/drones/1
