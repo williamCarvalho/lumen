@@ -11,7 +11,7 @@ RUN sed -ri -e 's!/var/www/!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/apache2.conf
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 
 RUN a2enmod rewrite
-RUN docker-php-ext-install mysqli pdo_mysql mbstring
+RUN docker-php-ext-install mysqli pdo_mysql
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 

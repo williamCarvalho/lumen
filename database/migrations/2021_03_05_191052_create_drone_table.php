@@ -33,6 +33,6 @@ class CreateDroneTable extends Migration
      */
     public function down()
     {
-        Schema::drop('drone');
+        Schema::dropIfExists('drone');
     }
 }
