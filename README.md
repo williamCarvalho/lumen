@@ -6,7 +6,7 @@
 - phpMyAdmin
 
 ## Configuração
-Abra a pasta root do projeto no terminal, em seguida execute os comandos na ordem:
+Abra a pasta root do projeto no terminal, em seguida execute os comandos respeitando a ordem:
 - composer install
 - cp .env.example .env
 - docker-compose build
